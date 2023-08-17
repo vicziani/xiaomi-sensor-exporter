@@ -90,7 +90,8 @@ class WebRequestHandler(BaseHTTPRequestHandler):
     def get_metrics(self):
         response = f"""#HELP xiaomi_sensor_exporter_number_of_sensors Number of sensors
 #TYPE xiaomi_sensor_exporter_number_of_sensors gauge
-xiaomi_sensor_exporter_number_of_sensors {len(devices)}"""
+xiaomi_sensor_exporter_number_of_sensors {len(devices)}
+"""
 
         for device in devices:
             device["data"] = read_values(device["address"])
