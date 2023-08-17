@@ -1,0 +1,5 @@
+port: 9093
+devices:
+  - name: workroom
+    address: xx:xx:xx:xx:xx:xx
+    
