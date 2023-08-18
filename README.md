@@ -41,7 +41,7 @@ devices:
 ## Run
 
 ```shell
-git clone https://github.com/vicziani/xiaomi-temperature-sensor
+git clone https://github.com/vicziani/xiaomi-sensor-exporter
 python -m venv venv
 venv/bin/activate
 pip install -r requirements.txt
@@ -50,12 +50,12 @@ python xiaomi_sensor_exporter.py -c config.yaml
 
 ## Run in Docker
 
-Create a configuration file for example at the `/home/pi/xiaomi-temperature-sensor/config.yaml` location.
+Create a configuration file for example at the `/home/pi/xiaomi_sensor_exporter/config.yaml` location.
 
 Run the container with the following command:
 
 ```shell
-docker run -v /home/pi/xiaomi-temperature-sensor/config.yaml:/app/config/config.yaml --net=host --privileged --name xiaomi -d vicziani/xiaomi-sensor-exporter:0.0.1
+docker run -v /home/pi/xiaomi_sensor_exporter/config.yaml:/app/config/config.yaml --net=host --privileged --name xiaomi -d vicziani/xiaomi-sensor-exporter:0.0.1
 ```
 
 Unfortunately I didn't find any solution to run the command without `--net=host --privileged` parameters. They are necessary to access the host's Bluetooth stack.

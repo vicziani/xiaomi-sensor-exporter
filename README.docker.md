@@ -8,4 +8,4 @@ Prometheus scraper can interpret this format.
 Because of `bluepy` (Bluetooth LE on Linux) dependency it works only on Linux.
 Recommended platform is Raspberry PI.
 
-Find the source code and full documentation at the [GitHub project](https://github.com/vicziani/xiaomi-temperature-sensor).
+Find the source code and full documentation at the [GitHub project](https://github.com/vicziani/xiaomi-sensor-exporter).
