@@ -35,7 +35,7 @@ Create a `config.yaml` configuration file:
 port: 9093
 devices:
   - name: workroom
-    address: 24-48-8C-94-96-4C
+    address: 24:48:8C:94:96:4C
 ```
 
 ## Run
@@ -55,10 +55,22 @@ Create a configuration file for example at the `/home/pi/xiaomi_sensor_exporter/
 Run the container with the following command:
 
 ```shell
-docker run -v /home/pi/xiaomi_sensor_exporter/config.yaml:/app/config/config.yaml --net=host --privileged --name xiaomi -d vicziani/xiaomi-sensor-exporter:0.0.1
+docker run -v $(pwd)/config.yaml:/app/config/config.yaml --net=host --privileged --name xiaomi -d vicziani/xiaomi-sensor-exporter:0.0.1
 ```
 
 Unfortunately I didn't find any solution to run the command without `--net=host --privileged` parameters. They are necessary to access the host's Bluetooth stack.
+
+You can also run it using compose:
+```yaml
+services:
+  xiaomi:
+    image: vicziani/xiaomi-sensor-exporter:0.0.1
+    network_mode: host
+    privileged: true
+    volumes:
+      - ./config.yaml:/app/config/config.yaml 
+```
+
 
 ## Usage
 
